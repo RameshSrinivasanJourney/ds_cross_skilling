@@ -4,6 +4,8 @@ from app.models.chat_models import (ChatRequest,ChatResponse)
 from app.services.ai_service import (AIService)
 from app.services.conversation_service import (ConversationService)
 
+from fastapi.responses import StreamingResponse
+from app.services.streaming_service import StreamingService
 
 router = APIRouter()
 
@@ -29,3 +31,10 @@ def chat(request: ChatRequest):
     )
 
     
+@router.post("/chat/stream")
+def stream_chat():
+
+    return StreamingResponse(
+        content=[],
+        media_type="text/event-stream"
+    )
