@@ -1,0 +1,26 @@
+# Environment
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# pytest
+.pytest_cache/
+
+# Distribution
+dist/
+build/
+*.egg-info/
+
+# macOS
+.DS_Store
