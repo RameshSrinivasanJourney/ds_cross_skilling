@@ -38,3 +38,38 @@ def stream_chat():
         content=[],
         media_type="text/event-stream"
     )
+
+
+@router.post("/chat/streamSSE")
+def stream_chat_sse(request: ChatRequest):
+
+    messages = [
+        {
+            "role": "user",
+            "content": request.message
+        }
+    ]
+
+    service = StreamingService()
+
+    return StreamingResponse(
+        service.stream_chat(messages),
+        media_type="text/event-stream"
+    )
+
+@router.post("/chat/partial")
+def stream_partial(request: ChatRequest):
+
+    messages = [
+        {
+            "role": "user",
+            "content": request.message
+        }
+    ]
+
+    service = StreamingService()
+
+    return StreamingResponse(
+        service.stream_partial(messages),
+        media_type="text/event-stream"
+    )
