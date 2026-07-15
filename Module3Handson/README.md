@@ -1,22 +1,23 @@
-# Module 2 - AI Chat Application
+# Module 3 - Prompt Engineering
 
 ## Overview
 
-This project demonstrates how to build a production-style AI Chat application using FastAPI and GitHub Models.
+This project extends the AI Chat Application developed in Module 2 by implementing Prompt Engineering techniques used in production Generative AI applications.
 
-The application supports multi-turn conversations, conversation history, streaming architecture, logging, exception handling, and token counting while following a clean project structure.
+The application demonstrates how different prompting strategies influence Large Language Models (LLMs) while following a clean, modular, and production-ready FastAPI architecture.
 
 ---
 
 ## Project Architecture
 
 ```
-Module2Handson
+Module3Handson
 │
 ├── app
 │   ├── api
 │   ├── core
 │   ├── models
+│   ├── prompts
 │   ├── services
 │   ├── utils
 │   └── main.py
@@ -35,7 +36,8 @@ Module2Handson
 | api | REST API endpoints |
 | core | Application configuration and AI settings |
 | models | Request and Response models |
-| services | Business logic and AI integration |
+| prompts | System Prompt and Prompt Builder |
+| services | AI integration and Prompt Engineering logic |
 | utils | Logger and Token Counter utilities |
 
 ---
@@ -50,11 +52,14 @@ Module2Handson
 - Pydantic
 - tiktoken
 - Logging
+- Prompt Engineering
 - Server Sent Events (SSE)
 
 ---
 
 ## Features Implemented
+
+### AI Chat Application
 
 - FastAPI REST API
 - GitHub Models Integration
@@ -68,9 +73,33 @@ Module2Handson
 - Logging
 - Token Counter
 
+### Prompt Design Foundations
+
+- System Prompt
+- Prompt Builder Pattern
+- Implicit Prompting
+- Explicit Prompting
+- Positive Instructions
+- Negative Instructions
+
+### Core Prompting & Reasoning Techniques
+
+- Zero-shot Prompting
+- One-shot Prompting
+- Few-shot Prompting
+- Instruction Hierarchy
+- Chain-of-Thought (CoT)
+- Zero-shot Chain-of-Thought (Zero-shot CoT)
+- Few-shot Chain-of-Thought (Few-shot CoT)
+- Tree-of-Thought (ToT)
+- ReAct Prompting
+- Meta Prompting
+
 ---
 
 ## API Endpoints
+
+### Chat APIs
 
 | Method | Endpoint | Description |
 |---------|----------|-------------|
@@ -79,36 +108,77 @@ Module2Handson
 | POST | /chat/streamSSE | Server Sent Events |
 | POST | /chat/partial | Partial Response Simulation |
 
+### Prompt Engineering APIs
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| POST | /prompt/implicit | Implicit Prompting |
+| POST | /prompt/explicit | Explicit Prompting |
+| POST | /prompt/positive | Positive Instructions |
+| POST | /prompt/negative | Negative Instructions |
+| POST | /prompt/zeroshot | Zero-shot Prompting |
+| POST | /prompt/oneshot | One-shot Prompting |
+| POST | /prompt/fewshot | Few-shot Prompting |
+| POST | /prompt/instruction-hierarchy | Instruction Hierarchy |
+| POST | /prompt/chainofthought | Chain-of-Thought |
+| POST | /prompt/zeroshot-cot | Zero-shot CoT |
+| POST | /prompt/fewshot-cot | Few-shot CoT |
+| POST | /prompt/treeofthought | Tree-of-Thought |
+| POST | /prompt/react | ReAct Prompting |
+| POST | /prompt/meta | Meta Prompting |
+
 ---
 
 ## Learning Outcomes
 
 After completing this module, I learned:
 
-- Building REST APIs using FastAPI
-- Integrating GitHub Models
-- Managing Conversation History
-- Designing reusable AI services
-- Streaming AI responses
-- Implementing Server Sent Events (SSE)
-- Centralizing AI configuration
-- Logging application events
-- Counting LLM tokens
-- Structuring a production-ready AI application
+- Designing production-ready System Prompts
+- Building reusable Prompt Builder patterns
+- Understanding Prompt Design Foundations
+- Writing effective prompts using implicit and explicit instructions
+- Using positive and negative prompting techniques
+- Implementing Zero-shot, One-shot, and Few-shot prompting
+- Applying Chain-of-Thought reasoning
+- Implementing Zero-shot CoT and Few-shot CoT
+- Using Tree-of-Thought reasoning
+- Understanding ReAct Prompting
+- Implementing Meta Prompting
+- Designing maintainable Prompt Engineering APIs
+- Organizing Prompt Engineering components for scalable AI applications
 
 ---
 
 ## Future Enhancements
 
-The following features will be implemented in Module 3:
+The following topics will be implemented next in Module 3:
 
-- Prompt Engineering
-- Prompt Builder Pattern
-- System Prompt
-- Prompt Templates
-- Role-based Prompting
-- Few-shot Prompting
-- Structured Outputs
+### Structured Output Prompting
+
+- Prompting for Valid JSON
+- XML Output Prompting
+- Markdown Output Prompting
+- Few-shot Structured Output
+- JSON Mode
+- Structured Outputs with Schema
+- Tool Use for Structured Extraction
+
+### System Prompt Engineering
+
+- Production System Prompts
+- Persona Design
+- Dynamic Context Injection
+- Handling Out-of-Scope Requests
+- Prompt Versioning
+- Prompt A/B Testing
+
+### Prompt Security
+
+- Prompt Injection Prevention
+- Prompt Leakage Prevention
+- Jailbreak Protection
+- Input Validation
+- Output Filtering
 
 ---
 

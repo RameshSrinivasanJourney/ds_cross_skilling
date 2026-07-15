@@ -2,36 +2,35 @@ from fastapi import APIRouter
 
 from app.models.chat_models import (ChatRequest,ChatResponse)
 from app.services.ai_service import (AIService)
-from app.services.conversation_service import (ConversationService)
 
 from fastapi.responses import StreamingResponse
 from app.services.streaming_service import StreamingService
 
-router = APIRouter()
+from app.prompts.prompt_builder import PromptBuilder
 
-@router.post(
+chat_router = APIRouter(
+    tags=["Chat"]
+)
+
+@chat_router.post(
     "/chat",
     response_model=ChatResponse
 )
 
 def chat(request: ChatRequest):
 
-    ConversationService.add_assistant_message(
+    messages = PromptBuilder.build(
         request.message
     )
 
-    answer = AIService.ask()
-
-    ConversationService.add_assistant_message(
-        answer
-    )
+    answer = AIService.ask(messages)
 
     return ChatResponse(
         response=answer
     )
 
     
-@router.post("/chat/stream")
+@chat_router.post("/chat/stream")
 def stream_chat():
 
     return StreamingResponse(
@@ -40,7 +39,7 @@ def stream_chat():
     )
 
 
-@router.post("/chat/streamSSE")
+@chat_router.post("/chat/streamSSE")
 def stream_chat_sse(request: ChatRequest):
 
     messages = [
@@ -57,7 +56,7 @@ def stream_chat_sse(request: ChatRequest):
         media_type="text/event-stream"
     )
 
-@router.post("/chat/partial")
+@chat_router.post("/chat/partial")
 def stream_partial(request: ChatRequest):
 
     messages = [
