@@ -5,7 +5,7 @@ from app.utils.logger import logger
 logger.info("Application Started Successfully")
 
 app = FastAPI(
-    title="Module2Handson"
+    title="Module3Handson"
 )
 
 app.include_router(router)
@@ -14,6 +14,6 @@ app.include_router(router)
 @app.get("/")
 def home():
     return {
-        "message": "Welcome to Module2Handson API",
+        "message": "Welcome to Module3Handson API",
         "docs": "/docs"
     }
