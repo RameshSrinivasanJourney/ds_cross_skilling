@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from app.api.chat_api import chat_router
 from app.utils.logger import logger
 from app.api.prompt_api import prompt_router
+from app.api.json_api import json_router
 
 logger.info("Application Started Successfully")
 
@@ -11,7 +12,7 @@ app = FastAPI(
 
 app.include_router(chat_router)
 app.include_router(prompt_router)
-
+app.include_router(json_router)
 
 @app.get("/")
 def home():

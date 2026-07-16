@@ -8,6 +8,11 @@ from app.services.streaming_service import StreamingService
 
 from app.prompts.prompt_builder import PromptBuilder
 
+from app.services.scope_service import ScopeService
+
+from app.services.security_service import SecurityService
+
+
 chat_router = APIRouter(
     tags=["Chat"]
 )
@@ -16,19 +21,40 @@ chat_router = APIRouter(
     "/chat",
     response_model=ChatResponse
 )
-
 def chat(request: ChatRequest):
+
+    valid, error = SecurityService.validate(
+        request.message
+    )
+
+    if not valid:
+
+        return ChatResponse(
+            response=error
+        )
+
+    if not ScopeService.is_hr_related(
+        request.message
+    ):
+
+        return ChatResponse(
+            response=(
+                "I'm an HR Assistant and can only "
+                "assist with HR-related questions."
+            )
+        )
 
     messages = PromptBuilder.build(
         request.message
     )
 
-    answer = AIService.ask(messages)
+    answer = AIService.ask(
+        messages
+    )
 
     return ChatResponse(
         response=answer
     )
-
     
 @chat_router.post("/chat/stream")
 def stream_chat():

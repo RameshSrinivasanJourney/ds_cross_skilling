@@ -7,6 +7,7 @@ from app.services.conversation_service import ConversationService
 from app.services.exception_service import ExceptionService
 from app.utils.logger import logger
 from app.utils.token_counter import TokenCounter
+from app.security.output_filter import OutputFilter
 
 client = OpenAI(
     api_key=settings.GITHUB_TOKEN,
@@ -16,7 +17,7 @@ client = OpenAI(
 class AIService:
     
     @staticmethod
-    def ask(messages=None):
+    def ask(messages=None, json_mode=False):
 
         if messages is None:
             messages = ConversationService.get_messages()
@@ -29,17 +30,30 @@ class AIService:
 
             logger.info("Sending request to GitHub AI")
 
+            kwargs = {}
+
+            if json_mode:
+                kwargs["response_format"] = {
+                    "type": "json_object"
+                }
+
             response = client.chat.completions.create(
 
                 model=AISettings.MODEL_NAME,
 
-                messages=messages
+                messages=messages,
+
+                **kwargs
 
             )
 
             logger.info("Received response from GitHub AI")
 
-            return response.choices[0].message.content
+            answer = response.choices[0].message.content
+
+            return OutputFilter.filter(
+                answer
+            )
     
         except Exception as ex:
             logger.error(f"AI Service Error: {ex}")

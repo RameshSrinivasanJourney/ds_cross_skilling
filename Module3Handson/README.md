@@ -18,10 +18,23 @@ Module3Handson
 │   ├── core
 │   ├── models
 │   ├── prompts
+│   │   ├── versions
+│   │   ├── prompt_builder.py
+│   │   └── system_prompt.py
+│   │
+│   ├── security
+│   │   ├── base_guard.py
+│   │   ├── input_validator.py
+│   │   ├── prompt_injection.py
+│   │   ├── prompt_leak_guard.py
+│   │   ├── jailbreak_guard.py
+│   │   └── output_filter.py
+│   │
 │   ├── services
 │   ├── utils
 │   └── main.py
 │
+├── docs
 ├── requirements.txt
 ├── README.md
 └── .env
@@ -31,14 +44,17 @@ Module3Handson
 
 ## Folder Structure
 
-| Folder | Purpose |
-|----------|----------|
-| api | REST API endpoints |
-| core | Application configuration and AI settings |
-| models | Request and Response models |
-| prompts | System Prompt and Prompt Builder |
-| services | AI integration and Prompt Engineering logic |
-| utils | Logger and Token Counter utilities |
+| | Folder   | Purpose                                         |
+| -------- | ----------------------------------------------- |
+| api      | REST API endpoints                              |
+| core     | Application configuration and AI settings       |
+| models   | Request and Response models                     |
+| prompts  | System prompts, Prompt Builder, Prompt Versions |
+| security | Input validation and Prompt Security            |
+| services | AI integration and Prompt Engineering logic     |
+| utils    | Logger and Token Counter utilities              |
+| docs     | Module documentation                            |
+
 
 ---
 
@@ -54,6 +70,11 @@ Module3Handson
 - Logging
 - Prompt Engineering
 - Server Sent Events (SSE)
+- JSON Schema
+- XML
+- Markdown
+- Prompt Engineering
+- Prompt Security
 
 ---
 
@@ -95,6 +116,31 @@ Module3Handson
 - ReAct Prompting
 - Meta Prompting
 
+Structured Output Prompting
+JSON Output Prompting
+XML Output Prompting
+Markdown Output Prompting
+Few-shot Structured JSON
+JSON Mode
+Structured Output using JSON Schema
+Tool Use Simulation
+
+System Prompt Engineering
+Production-ready System Prompt
+Persona-based Prompting
+Dynamic Context Injection
+Out-of-Scope Handling
+Prompt Versioning
+Prompt A/B Testing
+
+Prompt Security
+Input Validation
+Prompt Injection Protection
+Prompt Leakage Prevention
+Jailbreak Protection
+Output Filtering
+Centralized Security Service
+
 ---
 
 ## API Endpoints
@@ -126,6 +172,15 @@ Module3Handson
 | POST | /prompt/treeofthought | Tree-of-Thought |
 | POST | /prompt/react | ReAct Prompting |
 | POST | /prompt/meta | Meta Prompting |
+| POST   | /prompt/json         | JSON Output Prompting          |
+| POST   | /prompt/xml          | XML Output Prompting           |
+| POST   | /prompt/markdown     | Markdown Output Prompting      |
+| POST   | /prompt/fewshot-json | Few-shot Structured Output     |
+| POST   | /prompt/json-mode    | JSON Mode                      |
+| POST   | /prompt/schema       | Structured Output using Schema |
+| POST   | /prompt/tool-use     | Tool Use Simulation            |
+| POST   | /prompt/ab-test      | Prompt Version A/B Testing     |
+
 
 ---
 
@@ -138,47 +193,45 @@ After completing this module, I learned:
 - Understanding Prompt Design Foundations
 - Writing effective prompts using implicit and explicit instructions
 - Using positive and negative prompting techniques
-- Implementing Zero-shot, One-shot, and Few-shot prompting
+- Implementing Zero-shot, One-shot and Few-shot prompting
 - Applying Chain-of-Thought reasoning
 - Implementing Zero-shot CoT and Few-shot CoT
 - Using Tree-of-Thought reasoning
 - Understanding ReAct Prompting
 - Implementing Meta Prompting
-- Designing maintainable Prompt Engineering APIs
-- Organizing Prompt Engineering components for scalable AI applications
+- Generating structured outputs using JSON, XML and Markdown
+- Using JSON Mode with GitHub Models
+- Validating responses using JSON Schema
+- Simulating Tool Calling
+- Designing production-ready System Prompts
+- Injecting dynamic context into prompts
+- Managing Prompt Versions
+- Performing Prompt A/B Testing
+- Implementing Input Validation
+- Preventing Prompt Injection attacks
+- Preventing Prompt Leakage
+- Detecting Jailbreak attempts
+- Filtering unsafe AI outputs
+- Designing scalable Prompt Engineering APIs
+- Organizing Prompt Engineering components for enterprise AI applications
 
 ---
 
 ## Future Enhancements
 
-The following topics will be implemented next in Module 3:
+The following topics will be implemented next in Module 4:
 
-### Structured Output Prompting
+### Embeddings & Semantic Search:
 
-- Prompting for Valid JSON
-- XML Output Prompting
-- Markdown Output Prompting
-- Few-shot Structured Output
-- JSON Mode
-- Structured Outputs with Schema
-- Tool Use for Structured Extraction
-
-### System Prompt Engineering
-
-- Production System Prompts
-- Persona Design
-- Dynamic Context Injection
-- Handling Out-of-Scope Requests
-- Prompt Versioning
-- Prompt A/B Testing
-
-### Prompt Security
-
-- Prompt Injection Prevention
-- Prompt Leakage Prevention
-- Jailbreak Protection
-- Input Validation
-- Output Filtering
+Text Embeddings
+Embedding Models
+Vector Similarity
+Cosine Similarity
+Semantic Search
+Chunking Strategies
+Vector Databases
+Retrieval Pipelines
+Embedding-based Search API
 
 ---
 

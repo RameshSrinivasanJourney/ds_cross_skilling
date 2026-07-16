@@ -288,3 +288,170 @@ class PromptEngineeringService:
 
             ...
             """
+    
+    @staticmethod
+    def build_json_prompt(user_message: str):
+
+        return f"""
+            Task:
+
+            {user_message}
+
+            Instructions:
+
+            Return ONLY valid JSON.
+
+            Do not include explanations.
+
+            Do not include markdown.
+
+            Do not include code fences.
+
+            Return a JSON object only.
+            """
+    
+    @staticmethod
+    def build_xml_prompt(user_message: str):
+
+        return f"""
+            Task:
+
+            {user_message}
+
+            Instructions:
+
+            Return ONLY valid XML.
+
+            Do not include markdown.
+
+            Do not include explanations.
+
+            Do not include code fences.
+
+            Return well-formatted XML only.
+            """
+    
+    @staticmethod
+    def build_markdown_prompt(user_message: str):
+
+        return f"""
+            Task:
+
+            {user_message}
+
+            Instructions:
+
+            Return the response in valid Markdown format.
+
+            Include:
+
+            - Title
+            - Headings
+            - Bullet points
+            - Numbered lists (if applicable)
+            - Bold text where appropriate
+
+            Do not wrap the output inside markdown code fences.
+
+            Return only Markdown.
+            """
+    
+    @staticmethod
+    def build_fewshot_json_prompt(user_message: str):
+
+        return f"""
+            Example
+
+            Request:
+
+            Generate employee information.
+
+            Response:
+
+            {{
+                "name": "John Doe",
+                "department": "Engineering",
+                "salary": 85000,
+                "location": "Chennai"
+            }}
+
+            --------------------------------
+
+            Now generate the response for:
+
+            {user_message}
+
+            Instructions:
+
+            - Return ONLY valid JSON.
+            - Use exactly the same JSON structure.
+            - Do not rename fields.
+            - Do not include markdown.
+            - Do not include explanations.
+            """
+    
+    @staticmethod
+    def build_json_mode_prompt(user_message: str):
+
+        return f"""
+            Task:
+
+            {user_message}
+
+            Generate the response as a JSON object.
+            """
+    
+    @staticmethod
+    def build_schema_prompt(user_message: str):
+
+        return f"""
+            Task:
+
+            {user_message}
+
+            Return ONLY valid JSON.
+
+            The JSON MUST follow exactly this schema.
+
+            {{
+                "name": "string",
+                "department": "string",
+                "salary": integer,
+                "location": "string"
+            }}
+
+            Rules:
+
+            - Do not add extra fields.
+            - Do not remove fields.
+            - Do not change field names.
+            - Do not return markdown.
+            - Do not include explanations.
+            """
+    
+    @staticmethod
+    def build_tool_extraction_prompt(user_message: str):
+
+        return f"""
+            Task:
+
+            Extract structured information from the following request.
+
+            Request:
+
+            {user_message}
+
+            Return ONLY valid JSON.
+
+            Schema:
+
+            {{
+                "intent": "string",
+                "entities": {{
+                    "key": "value"
+                }}
+            }}
+
+            Do not include explanations.
+            Do not include markdown.
+            """
