@@ -43,3 +43,9 @@ dist/
 # Coverage
 .coverage
 htmlcov/
+
+#FAISS
+faiss_index/
+faiss_st_index/
+*.index
+*.faiss

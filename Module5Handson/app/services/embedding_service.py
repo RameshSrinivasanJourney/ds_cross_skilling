@@ -1,17 +1,16 @@
-from openai import OpenAI
+from sentence_transformers import SentenceTransformer
 
 from app.core.config import settings
 
 
 class EmbeddingService:
 
-    client = OpenAI(
+    model = SentenceTransformer(
 
-        base_url=settings.GITHUB_ENDPOINT,
-
-        api_key=settings.GITHUB_TOKEN
+        settings.SENTENCE_TRANSFORMER_MODEL
 
     )
+
 
     @classmethod
     def generate_embedding(
@@ -22,12 +21,12 @@ class EmbeddingService:
 
     ):
 
-        response = cls.client.embeddings.create(
+        embedding = cls.model.encode(
 
-            model=settings.EMBEDDING_MODEL,
+            text,
 
-            input=text
+            convert_to_numpy=True
 
         )
 
-        return response.data[0].embedding
+        return embedding.tolist()
