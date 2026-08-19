@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What is the total annual leave entitlement?",
+    "ground_truth": "Employees are entitled to 24 days of paid leave per calendar year, consisting of 6 days of Casual Leave, 6 days of Sick Leave, and 12 days of Earned Leave."
+  },
+  {
+    "question": "How many Casual Leave days are provided per year?",
+    "ground_truth": "Employees are entitled to 6 days of Casual Leave per calendar year."
+  },
+  {
+    "question": "How many Sick Leave days are provided per year?",
+    "ground_truth": "Employees are entitled to 6 days of Sick Leave per calendar year."
+  },
+  {
+    "question": "How many Earned Leave days are provided per year?",
+    "ground_truth": "Employees are entitled to 12 days of Earned Leave per calendar year."
+  },
+  {
+    "question": "What is the maximum Earned Leave accumulation?",
+    "ground_truth": "Earned Leave can be accumulated up to a maximum of 20 days."
+  },
+  {
+    "question": "How frequently are leaves credited?",
+    "ground_truth": "Leaves are credited quarterly."
+  },
+  {
+    "question": "How many total leave days are credited each quarter?",
+    "ground_truth": "A total of 6 leave days are credited each quarter."
+  },
+  {
+    "question": "Are public holidays counted as leave?",
+    "ground_truth": "No. A declared public holiday falling within an approved leave period is not counted as leave."
+  },
+  {
+    "question": "Are weekly offs counted as leave?",
+    "ground_truth": "No. A weekly off falling within an approved leave period is not counted as leave."
+  },
+  {
+    "question": "Can employees serving notice period encash Earned Leave?",
+    "ground_truth": "No. Employees serving their notice period or who have resigned are not eligible for Earned Leave encashment."
+  }
+]
