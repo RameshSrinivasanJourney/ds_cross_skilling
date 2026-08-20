@@ -1,0 +1,101 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Environment Variables
+.env
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*.pyo
+*$py.class
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# Logs
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Pytest
+.pytest_cache/
+.mypy_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Coverage
+.coverage
+htmlcov/
+.coverage.*
+coverage.xml
+
+# FAISS
+faiss_index/
+faiss_st_index/
+*.index
+*.faiss
+
+# RAG Indexes
+indexes/
+faiss/
+
+# Uploaded / Processed Documents
+uploads/
+processed/
+
+# Model Cache
+models/
+.cache/
+
+# Local Database
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+
+# CrewAI
+.crewai/
+crew_artifacts/
+traces/
+telemetry/
+outputs/
+
+# CrewAI / Agent Runtime
+memory/
+knowledge/
+vectorstore/
+chroma/
+chroma_db/
+
+# Python Tooling
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyright/
+.pyrightconfig.json
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+
+# IDE / Editor Files
+*.swp
+*.swo
+*~
+
+# OS / Explorer Files
+Desktop.ini
