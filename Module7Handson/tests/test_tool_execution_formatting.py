@@ -1,0 +1,76 @@
+from app.models.tool_models import CURRENT_WEATHER_TOOL
+from app.services.ollama_service import OllamaService
+from app.services.tool_result_formatter import ToolResultFormatter
+from app.tools.tool_registry import TOOL_REGISTRY
+
+
+def test_tool_execution_formatting():
+
+    service = OllamaService()
+
+    messages = [
+        {
+            "role": "user",
+            "content": "What is the weather in Chennai right now?"
+        }
+    ]
+
+    response = service.chat_with_tools(
+        messages=messages,
+        tools=[CURRENT_WEATHER_TOOL],
+    )
+
+    tool_calls = response["message"].get(
+        "tool_calls",
+        []
+    )
+
+    if not tool_calls:
+        print("\nNo tool call generated.")
+        return
+
+    for tool_call in tool_calls:
+
+        tool_name = tool_call.function.name
+        arguments = tool_call.function.arguments
+
+        print("\nTool Name:")
+        print(tool_name)
+
+        print("\nArguments:")
+        print(arguments)
+
+        tool_function = TOOL_REGISTRY.get(tool_name)
+
+        if tool_function is None:
+            print("\nTool not found!")
+            return
+
+        print("\nExecuting Tool...")
+
+        try:
+
+            result = tool_function(
+                **arguments
+            )
+
+            formatted_result = (
+                ToolResultFormatter.success(
+                    result
+                )
+            )
+
+        except Exception as exc:
+
+            formatted_result = (
+                ToolResultFormatter.failure(
+                    str(exc)
+                )
+            )
+
+        print("\nFormatted Tool Result:")
+        print(formatted_result)
+
+
+if __name__ == "__main__":
+    test_tool_execution_formatting()

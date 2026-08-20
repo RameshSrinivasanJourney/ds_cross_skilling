@@ -1,0 +1,11 @@
+Module 7 Function Calling Practice
+
+Topics covered:
+- Tool definitions
+- Tool calling
+- Parallel tool calling
+- Web search
+- Calculator
+- Database queries
+- REST APIs
+- File tools
