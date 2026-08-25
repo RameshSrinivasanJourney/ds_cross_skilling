@@ -1,0 +1,84 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Environment Variables / Secrets
+.env
+.env.*
+!.env.example
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*.pyo
+*$py.class
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# Logs
+*.log
+logs/*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Pytest / Tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Coverage
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Local data
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+data/*.json
+data/*.jsonl
+
+# Model / Package Caches
+models/
+.cache/
+huggingface/
+.sentence_transformers/
+
+# Runtime outputs
+outputs/
+traces/
+telemetry/
+
+# Local observability data
+logs/*.json
+logs/*.jsonl
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# Secrets / local credentials
+*.pem
+*.key
+secrets/
