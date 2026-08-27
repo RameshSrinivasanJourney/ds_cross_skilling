@@ -1,0 +1,13 @@
+models:
+  - type: main
+    engine: ollama
+    model: llama3.2:3b
+
+rails:
+  input:
+    flows:
+      - self check input
+
+  output:
+    flows:
+      - self check output
