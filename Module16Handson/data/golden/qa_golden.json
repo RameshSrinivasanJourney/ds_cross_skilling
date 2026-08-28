@@ -1,0 +1,51 @@
+[
+  {
+    "id": "qa-001",
+    "question": "What is Retrieval-Augmented Generation?",
+    "expected_answer": "RAG retrieves relevant information and provides that context to a language model to generate an answer.",
+    "required_facts": [
+      "retrieves relevant information",
+      "context",
+      "language model"
+    ]
+  },
+  {
+    "id": "qa-002",
+    "question": "What is an embedding?",
+    "expected_answer": "An embedding is a numerical vector representation of text or other data that captures semantic relationships.",
+    "required_facts": [
+      "numerical vector",
+      "semantic"
+    ]
+  },
+  {
+    "id": "qa-003",
+    "question": "What is a vector database?",
+    "expected_answer": "A vector database stores and searches vector embeddings to find semantically similar data.",
+    "required_facts": [
+      "vector embeddings",
+      "semantically similar"
+    ]
+  },
+  {
+    "id": "qa-004",
+    "question": "What is prompt injection?",
+    "expected_answer": "Prompt injection is an attack where untrusted input attempts to manipulate the instructions followed by an AI system.",
+    "required_facts": [
+      "attack",
+      "untrusted input",
+      "instructions"
+    ]
+  },
+  {
+    "id": "qa-005",
+    "question": "What is caching in an LLM application?",
+    "expected_answer": "Caching stores reusable results so repeated requests can avoid unnecessary model calls and reduce latency and cost.",
+    "required_facts": [
+      "repeated requests",
+      "model calls",
+      "latency",
+      "cost"
+    ]
+  }
+]
